@@ -15,7 +15,7 @@ router.post('/create_user', awaitErrorHandlerFactory(async (req, res) => {
     try {
         const body = await validate(req.body, userValitation.user);
         const { one, tow, name, surname, age, email, password } = body;
-        const result = await userService.createUser({ one, tow, name, surname, age, email, password });
+        const result = await userService.createUser({ name, surname, age, email, password });
         res.status(200).json(new response(result));
     }
     catch (error) {
